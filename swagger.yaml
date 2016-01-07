@@ -1,0 +1,95 @@
+swagger: '2.0'
+info:
+  version: 0.1.1
+  title: Find My Musical Home
+  
+definitions:
+  Country:
+    type: object
+    properties:
+      name:
+        type: string
+        description: ISO 3166-1 alpha-2 code
+      count:
+        type: integer
+        description: number of occurences in event set
+  Event:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: songkick.com event id
+      name:
+        type: string
+        description: human readable name of the event
+      url:
+        type: string
+        description: link to songkick.com event page
+      location:
+        $ref: '#/definitions/Location'
+  Location:
+    type: object
+    properties:
+      lat:
+        type: number
+      lon:
+        type: number
+      country:
+        type: string
+        description: ISO 3166-1 alpha-2 code
+          
+paths:
+  /futureEvents/{user}:
+    get:
+      description: |
+        Gets `ColoredEvents` objects.
+      parameters:
+        - name: user
+          in: path
+          description: lasf.fm username
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            title: ColoredResponse
+            type: object
+            properties:
+                events:
+                  type: array
+                  items:
+                    $ref: '#/definitions/Event'
+                countries:
+                  type: array
+                  items:
+                    $ref: '#/definitions/Country'
+                maxEvents:
+                  type: integer
+  /pastEvents/{user}:
+    get:
+      description: |
+        Gets `ColoredEvents` objects.
+      parameters:
+        - name: user
+          in: path
+          description: lasf.fm username
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            title: ColoredResponse
+            type: object
+            properties:
+                events:
+                  type: array
+                  items:
+                    $ref: '#/definitions/Event'
+                countries:
+                  type: array
+                  items:
+                    $ref: '#/definitions/Country'
+                maxEvents:
+                  type: integer
