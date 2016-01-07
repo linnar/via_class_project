@@ -21,8 +21,8 @@ apply plugin: 'kotlin' // New
 apply plugin: 'spring-boot'
 
 jar {
-    baseName = 'gs-rest-service'
-    version =  '0.1.0'
+    baseName = 'via-rest-service'
+    version =  '0.1.1'
 }
 
 repositories {
@@ -63,7 +63,4 @@ springBoot {
     mainClass = 'cz.janlinka.via.backend.ApplicationKt'
 }
 
-apply plugin:'application'
-mainClassName = "cz.janlinka.via.backend.ApplicationKt"
-applicationName = "app"
-task stage(dependsOn: ['clean', 'installApp'])
+task stage(dependsOn: ['clean', 'build'])

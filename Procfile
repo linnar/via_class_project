@@ -1,1 +1,1 @@
-web: ./build/install/app/bin/app
+web: java -Dserver.port=$PORT -jar build/libs/via-rest-service-0.1.1.jar
