@@ -64,3 +64,4 @@ springBoot {
 }
 
 task stage(dependsOn: ['clean', 'build'])
+build.mustRunAfter clean
