@@ -62,3 +62,8 @@ task wrapper(type: Wrapper) {
 springBoot {
     mainClass = 'cz.janlinka.via.backend.ApplicationKt'
 }
+
+apply plugin:'application'
+mainClassName = "cz.janlinka.via.backend.ApplicationKt"
+applicationName = "app"
+task stage(dependsOn: ['clean', 'installApp'])
