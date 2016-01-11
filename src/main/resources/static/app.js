@@ -20,12 +20,12 @@ var ApiCountry = (function () {
     return ApiCountry;
 })();
 window.onload = function () {
-    setUp();
+    $("#progress").hide();
     mapboxgl.accessToken = 'pk.eyJ1IjoiamFubGlua2EiLCJhIjoiNWIyMDIwNWZjYWQyZjI1ODEyYzQxNTY1NDM4MjZkMjUifQ.1fVWlwvpTbeNlEimutsUIA';
     map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/dark-v8',
-        center: [-74.50, 40],
+        center: [14.416667, 20],
         zoom: 2 // starting zoom
     });
     map.on('style.load', function () {
@@ -68,11 +68,11 @@ window.onload = function () {
             });
         });
         // enable search
-        console.log(map);
+        setUp();
     });
 };
 function setUp() {
-    $("#progress").hide();
+    $("#find-button").click(request);
     $("#username").keyup(function (event) {
         if (event.keyCode == 13) {
             request();
@@ -87,7 +87,7 @@ function request() {
         .always(function () { $("#progress").hide(); });
 }
 function countryAlpha(country, maxCount) {
-    return 0.5 + (country.count / (2 * maxCount));
+    return 0.2 + 0.8 * (country.count / (maxCount));
 }
 function onDataReceived(json) {
     json.countries.forEach(function (country) {
@@ -98,7 +98,7 @@ function onDataReceived(json) {
             "source-layer": "ne_10m_admin_0_countries_lakes",
             "filter": ["==", "ISO_A2", country.name],
             "paint": {
-                "fill-color": "rgba(28, 139, 28," + countryAlpha(country, json.maxCount) + ")"
+                "fill-color": "rgba(28, 139, 28," + countryAlpha(country, json.maxEvents) + ")"
             },
             "interactive": false
         };
@@ -115,14 +115,18 @@ function onDataReceived(json) {
             },
             "geometry": {
                 "type": "Point",
-                "coordinates": [event.location.lat, event.location.lon]
+                "coordinates": [event.location.lon, event.location.lat]
             }
         };
         markers.push(marker);
     });
+    var geomarkers = {
+        "type": "FeatureCollection",
+        "features": markers
+    };
     map.addSource("markers", {
         "type": "geojson",
-        "data": markers
+        "data": geomarkers
     });
     // Add a layer showing the markers.
     map.addLayer({
@@ -131,7 +135,7 @@ function onDataReceived(json) {
         "type": "symbol",
         "source": "markers",
         "layout": {
-            "icon-image": "{marker-symbol}-15"
+            "icon-image": "default_marker"
         }
     });
 }

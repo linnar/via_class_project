@@ -20,6 +20,7 @@ nav {
     width: 25ch;
     font-size: 1.25rem;
 }
+
 #logo-container {
     position: relative;
     top: 0%;
@@ -42,7 +43,17 @@ footer {
     transform: translateY(40%);
     height: 5vh;
 }
+
 #map {
     height: 87vh;
     width: 100%;
+}
+
+.mapboxgl-popup {
+    max-width: 400px;
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
+.marker-title {
+    font-weight: 700;
 }
