@@ -8,6 +8,7 @@ nav {
     height: 10vh;
     line-height: 10vh;
     margin-bottom: -2vh;
+    overflow: hidden;
 }
 
 .search-wrapper {
@@ -17,7 +18,7 @@ nav {
 }
 
 #username {
-    width: 25ch;
+    width: 18ch;
     font-size: 1.25rem;
 }
 

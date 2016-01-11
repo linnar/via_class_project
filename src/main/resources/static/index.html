@@ -18,7 +18,7 @@
 <body>
     <nav class="orange" role="navigation">
         <div class="nav-wrapper container">
-            <a id="logo-container" href="#" class="brand-logo">Music Home</a>
+            <a id="logo-container" href="#" class="left brand-logo hide-on-small-only">Music Home</a>
                 <span class="search-wrapper"><input type="text" id="username" placeholder="last.fm username" />
                 <a class="btn" id="find-button">Find</a>
                     <div class="preloader-wrapper small active" id="progress">
@@ -34,17 +34,10 @@
                     </div>
             </span>
 
-            <ul class="right hide-on-med-and-down">
-                <li><a href="http://last.fm"><img class="logo" src="lastfm_white.png" /></a></li>
-                <li><a href="http://songkick.com"><img class="logo" src="songkick_white.png" /></a></li>
+            <ul class="valign-wrapper right hide-on-med-and-down">
+                <li class="valign"><a href="http://last.fm"><img class="logo" src="lastfm_white.png" /></a></li>
+                <li class="valign"><a href="http://songkick.com"><img class="logo" src="songkick_white.png" /></a></li>
             </ul>
-
-            <ul id="nav-mobile" class="side-nav">
-                <li><a href="http://last.fm"><img class="logo" src="lastfm_white.png" /></a></li>
-                <li><a href="http://songkick.com"><img class="logo" src="songkick_white.png" /></a></li>
-            </ul>
-
-            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
     </nav>
     <div id='map'></div>
