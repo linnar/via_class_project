@@ -101,7 +101,7 @@ function onDataReceived(json) {
             },
             "interactive": false
         };
-        style.layers.splice(3, 0, countryLayer);
+        map.getCanvas().style.layers.splice(3, 0, countryLayer);
     });
     var markers = [];
     json.events.forEach(function (event) {
