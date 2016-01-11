@@ -68,6 +68,7 @@ window.onload = function () {
             });
         });
         // enable search
+        console.log(map);
     });
 };
 function setUp() {
@@ -101,7 +102,7 @@ function onDataReceived(json) {
             },
             "interactive": false
         };
-        map.getCanvas().style.layers.splice(3, 0, countryLayer);
+        map.addLayer(countryLayer);
     });
     var markers = [];
     json.events.forEach(function (event) {
