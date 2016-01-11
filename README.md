@@ -6,6 +6,6 @@ This application was crated as learning exercise for Kotlin language, Spring Boo
  
 Demo
 --------------
-API endpoint: https://agile-plateau-1737.herokuapp.com/
-API documentation: [Swagger](http://editor.swagger.io/#/?import=https://github.com/linnar/via_class_project/blob/master/swagger.yaml)
-Application demo: to be deployed
+* API endpoint: https://agile-plateau-1737.herokuapp.com/
+* API documentation: [Swagger](http://editor.swagger.io/#/?import=https://raw.githubusercontent.com/linnar/via_class_project/master/swagger.yaml)
+* Application demo: [link](https://agile-plateau-1737.herokuapp.com/index.html)
